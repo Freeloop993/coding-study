@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord研究资料</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #5865F2;
+            --accent-light: #7289DA;
+            --bg-dark: #1e1f22;
+            --bg-medium: #2b2d31;
+            --bg-light: #313338;
+            --text-normal: #dcddde;
+            --text-muted: #a3a6aa;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-normal);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .card {
+            background-color: var(--bg-medium);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .link-card {
+            background-color: var(--bg-light);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-light);
+        }
+        
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .icon {
+            font-size: 1.75rem;
+            color: white;
+        }
+        
+        .link-content {
+            text-align: left;
+        }
+        
+        .link-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .link-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Discord研究资料</h1>
+        <p class="subtitle">关于Discord平台的生态系统与主流机器人资料汇总</p>
+        
+        <div class="card">
+            <a href="/coding-study/data/discord.html" class="link-card">
+                <div class="icon-wrapper">
+                    <i class="fab fa-discord icon"></i>
+                </div>
+                <div class="link-content">
+                    <h2 class="link-title">Discord发展历程与生态系统</h2>
+                    <p class="link-description">深入分析Discord的发展历程、商业模式、社区生态与未来趋势</p>
+                </div>
+            </a>
+            
+            <a href="/coding-study/data/discord-bots.html" class="link-card">
+                <div class="icon-wrapper">
+                    <i class="fas fa-robot icon"></i>
+                </div>
+                <div class="link-content">
+                    <h2 class="link-title">Discord主流BOT定价与介绍</h2>
+                    <p class="link-description">详细介绍Discord平台上流行机器人的功能、定价与使用场景</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="text-sm text-gray-500 mt-4">
+            <p>©2025 Discord研究项目 | 项目部署于GitHub Pages</p>
+        </div>
+    </div>
+</body>
+</html> 
