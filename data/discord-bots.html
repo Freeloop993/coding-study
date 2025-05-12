@@ -31,29 +31,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--accent-color);
-            border-radius: 0.25rem;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        
-        .nav-link:hover {
-            background-color: var(--accent-light);
-        }
-        
         .section-title {
             color: white;
             font-size: 1.5rem;
@@ -256,6 +233,29 @@
         .collapse-content.show {
             display: block;
         }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            border-radius: 0.25rem;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--accent-light);
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
@@ -274,8 +274,417 @@
             <p class="text-lg text-gray-400">全方位解析流行Discord机器人的功能特点与价格体系</p>
         </header>
         
+        <!-- Discord头部社区调研分析 -->
+        <div class="community-analysis">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Discord头部社区调研分析</h2>
+            <p class="mb-4 text-gray-300">以下是对Discord平台上十大头部社区的深度分析，涵盖AI、游戏、区块链等多个垂直领域。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- AI垂直领域社区 -->
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-brain text-indigo-400"></i> Mid社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-ai">AI交流</span>
+                        <span class="tag">传统型平台</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">传统型AI交流平台，界面风格较为传统，功能模块单一，以AI相关话题为核心。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 功能架构：仅设置单一的沟通交流区，涵盖AI技术讨论、行业动态分享、工具使用心得等</li>
+                            <li>• 用户画像：主要聚集AI开发者、研究者及深度爱好者，内容专业性强但娱乐性不足</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-brain text-indigo-400"></i> Viggle社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-ai">AI聚合</span>
+                        <span class="tag">多元化平台</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">多元化AI兴趣聚合平台，通过精细化分区运营，兼顾专业性与趣味性。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 语言功能区：设置通用英语交流板块，满足国际化沟通需求</li>
+                            <li>• 内容解析区：专注AI生成作品分析，涵盖文本、图像、视频等多种形式</li>
+                            <li>• 创意娱乐区：独立meme梗图板块，融合AI元素与网络流行文化</li>
+                            <li>• 跨界互动区：football投票聊天区，实现体育话题与AI社区的跨界融合</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 游戏生态社区 -->
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-gamepad text-green-400"></i> Marvel Rivals社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-game">游戏社交</span>
+                        <span class="tag">组队打游戏</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">游戏化社交平台，以组队打游戏为主要场景，聊天内容高度聚焦游戏策略。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 激励机制：内置邀请朋友入驻的激励体系，通过虚拟奖励或特权提升用户拉新积极性</li>
+                            <li>• 社交属性：强游戏社交属性，用户互动紧密围绕游戏场景展开</li>
+                            <li>• 内容特点：高度聚焦游戏策略、赛事分析、装备搭配等专业内容</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-gamepad text-green-400"></i> 蓝色监狱：对手社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-game">动漫IP</span>
+                        <span class="tag">足球游戏</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">动漫IP衍生的足球游戏社区，官方主导运营，基于热门动漫打造5v5足球游戏社群。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 现状分析：当前处于满员状态，反映出强IP加持下的高用户吸引力</li>
+                            <li>• 准入机制：可能采用限流或申请制，形成稀缺性社交氛围</li>
+                            <li>• 运营特点：IP与游戏深度融合，形成独特的社区文化</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-gamepad text-green-400"></i> 无畏契约（瓦）社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-game">战术射击</span>
+                        <span class="tag">电竞社群</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">战术射击游戏垂直社群，类似传统游戏社群架构，包含战术讨论、战队招募等板块。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 社区特征：包含战术讨论、战队招募、赛事直播等常规板块</li>
+                            <li>• 用户粘性：依赖游戏版本更新和电竞赛事维持活跃度</li>
+                            <li>• 社交圈层：形成固定的玩家交流圈层，专业性较强</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-gamepad text-green-400"></i> 堡垒之夜社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-game">跨平台</span>
+                        <span class="tag">创意社交</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">跨平台游戏社交中心，涵盖游戏攻略、皮肤鉴赏、创意工坊讨论等多元内容。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 功能模块：兼具竞技性与休闲娱乐属性，满足不同玩家需求</li>
+                            <li>• 生态整合：与游戏内创意工具深度联动，鼓励UGC内容创作</li>
+                            <li>• 社区特色：用户分享自制地图、皮肤设计等创意内容</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 区块链数字内容社区 -->
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-link text-yellow-400"></i> Limewire社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-blockchain">Web3</span>
+                        <span class="tag">数字内容</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">Web3数字内容生态平台，专注区块链技术与数字作品结合，提供AI生成音乐作品服务。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 核心业务：提供AI生成音乐作品的创作、交易与展示服务</li>
+                            <li>• 经济体系：发行平台专属代币，构建去中心化的经济激励体系</li>
+                            <li>• 技术优势：利用区块链实现数字作品的版权确权与价值流转</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 沙盒游戏社区 -->
+                <div class="community-card">
+                    <div class="community-name">
+                        <i class="fas fa-cube text-red-400"></i> 我的世界社区
+                    </div>
+                    <div class="flex flex-wrap mb-2">
+                        <span class="tag tag-sandbox">沙盒游戏</span>
+                        <span class="tag">创作生态</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-2">开放式沙盒游戏生态社区，用户活跃度极高，构建了完整的游戏衍生内容生态。</p>
+                    <button class="collapse-btn" onclick="toggleCollapse(this)">
+                        <i class="fas fa-plus-circle"></i> 查看详情
+                    </button>
+                    <div class="collapse-content">
+                        <ul class="text-sm text-gray-400 space-y-1 pl-4">
+                            <li>• 玩法讨论区：按游戏模式细分，包含地下城探险、生存技巧、建筑教程等</li>
+                            <li>• 创意工坊：独立的二创艺术板块，涵盖皮肤材质设计、模组开发、地图制作等</li>
+                            <li>• UGC生态：用户自主创作的内容成为社区核心驱动力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 调研结论 -->
+            <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+                <h3 class="text-lg font-semibold text-white mb-2">调研结论</h3>
+                <ul class="text-sm text-gray-300 space-y-2">
+                    <li class="flex">
+                        <span class="text-accent-light mr-2">•</span>
+                        <span><strong class="text-white">垂直化发展趋势：</strong>头部社区普遍聚焦特定领域（如AI、游戏、区块链），通过精准定位吸引目标用户</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-accent-light mr-2">•</span>
+                        <span><strong class="text-white">功能精细化运营：</strong>成功社区多采用细分板块运营，兼顾核心功能与娱乐社交，满足用户多元需求</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-accent-light mr-2">•</span>
+                        <span><strong class="text-white">激励机制创新：</strong>部分社区通过经济激励（如代币）或社交激励（如邀请机制）提升用户参与度</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-accent-light mr-2">•</span>
+                        <span><strong class="text-white">IP与UGC驱动：</strong>依托强IP（如动漫、游戏）或用户原创内容（UGC）构建生态闭环，是维持高活跃度的关键</span>
+                    </li>
+                </ul>
+                <p class="text-xs text-gray-400 mt-3">注：部分社区因准入限制（如蓝色监狱满员状态），调研信息主要基于公开资料及用户反馈</p>
+            </div>
+        </div>
+        
         <div class="section">
-            <h2 class="section-title"><i class="fas fa-robot"></i> 多功能实用型BOT</h2>
+            <h2 class="section-title"><i class="fas fa-robot"></i> 验证与安全类机器人</h2>
+            
+            <!-- Captcha.bot -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Captcha.bot</div>
+                    <div class="bot-description">一款被众多 Discord 服务器使用的验证码机器人，能防止自动攻击、移除诈骗链接、标记可疑账户，提供多种验证方式和可配置时间限制，并为管理员提供服务器洞察。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐类型</th>
+                                <th>价格</th>
+                                <th>包含内容</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">免费版</td>
+                                <td class="price free">0 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>一个验证身份</li>
+                                        <li>日志频道</li>
+                                        <li>仅网页验证</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">月度版（推荐）</td>
+                                <td class="price">11.99 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>免费版所有内容</li>
+                                        <li>五个验证身份</li>
+                                        <li>30 天分析历史记录</li>
+                                        <li>导出分析数据和审计日志</li>
+                                        <li>图像验证</li>
+                                        <li>更长的时间限制</li>
+                                        <li>可转移到另一服务器</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">年度版</td>
+                                <td class="price">130 美元 / 年</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>月度版所有内容</li>
+                                        <li>一个月免费使用</li>
+                                        <li>最高优惠</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Bloxlink HQ -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Bloxlink HQ</div>
+                    <div class="bot-description">一款能将 Roblox 与 Discord 服务器集成，基于用户的 Roblox 群组身份自动同步角色、验证身份和授予访问权限，以增强服务器安全性并简化管理任务的 Discord 机器人。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐名称</th>
+                                <th>价格</th>
+                                <th>包含内容</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Free</td>
+                                <td class="price free">0 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>基本命令</li>
+                                        <li>加入和离开消息</li>
+                                        <li>最多 50 个绑定</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Basic Premium</td>
+                                <td class="price">5.99 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>高级命令</li>
+                                        <li>加入和离开消息</li>
+                                        <li>最多 200 个绑定</li>
+                                        <li>最多可将服务器与 15 个群组关联</li>
+                                        <li>验证服务器内所有成员</li>
+                                        <li>设置账户年龄要求</li>
+                                        <li>自定义验证频道按钮</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Bloxlink Pro</td>
+                                <td class="price premium">9.99 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>高级命令</li>
+                                        <li>加入和离开消息</li>
+                                        <li>无限制绑定</li>
+                                        <li>无限制将服务器与群组关联</li>
+                                        <li>验证服务器内所有成员</li>
+                                        <li>设置账户年龄要求</li>
+                                        <li>自定义验证频道按钮</li>
+                                        <li>访问 Pro 机器人</li>
+                                        <li>自定义专属 URL</li>
+                                        <li>创建供服务器成员验证后可见的社交横幅</li>
+                                        <li>通过扩展的社区服务器列表接触更多 Bloxlink 用户</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-music"></i> 音乐与娱乐类机器人</h2>
+            
+            <!-- Rythm -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Rythm</div>
+                    <div class="bot-description">一款播放音乐的机器人</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐</th>
+                                <th>价格</th>
+                                <th>优势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Premium</td>
+                                <td class="price">4.99 美元 / 月</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>高级会话：可邀请所有朋友加入并免费收听</li>
+                                        <li>Pick Any Song：随时随地播放喜爱的任何歌曲</li>
+                                        <li>高级服务器：可访问封闭式 Discord 服务器，与真实艺术家参加特别活动，直接与团队聊天</li>
+                                        <li>抢先体验：能第一批尝试新功能，并在 Discord 中获得优先帮助</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Hydra -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Hydra</div>
+                    <div class="bot-description">一款广受欢迎的多功能 Discord 机器人，具备强大音乐播放功能，支持从多个流媒体服务获取音乐，还拥有自动分配角色、反垃圾信息等管理工具，以及可定制欢迎消息、自动公告、趣味命令等特色功能。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>服务器数量</th>
+                                <th>价格（美元 / 月）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="price">3.99</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="price">5.99</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="price">7.99</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="price">9.99</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td class="price">11.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> 管理与多功能机器人</h2>
             
             <!-- MEE6 -->
             <div class="bot-card">
@@ -810,13 +1219,6 @@
             }
         }
     </script>
-
-    <!-- 添加跳转按钮 -->
-    <div class="text-center mt-4">
-        <a href="/coding-study/data/discord-bots.html" class="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white text-sm transition-colors duration-200">
-            <i class="fas fa-robot mr-1"></i> 主流BOT定价与介绍
-        </a>
-    </div>
 
 </body>
 </html>
