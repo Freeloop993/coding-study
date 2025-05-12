@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord主流BOT定价与介绍</title>
+    <!-- 外部CSS资源 -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 本地备用CSS，确保基本样式加载 -->
+    <link rel="stylesheet" href="discord-bots-simple.css">
     <style>
         :root {
             --accent-color: #5865F2;
@@ -226,12 +229,8 @@
         }
         
         .collapse-content {
-            display: none;
-            padding-top: 0.5rem;
-        }
-        
-        .collapse-content.show {
             display: block;
+            padding-top: 0.5rem;
         }
         
         .nav-links {
@@ -1208,14 +1207,44 @@
     </div>
 
     <script>
+        // 确保所有详情都可见，即使JavaScript失败
+        document.addEventListener("DOMContentLoaded", function() {
+            // 默认已经设置为显示，但这里增加兼容性
+            var allCollapseContents = document.querySelectorAll(".collapse-content");
+            for (var i = 0; i < allCollapseContents.length; i++) {
+                allCollapseContents[i].style.display = "block";
+            }
+            
+            // 原有功能
+            function toggleCollapse(button) {
+                const content = button.nextElementSibling;
+                if (content.classList.contains('show') || content.style.display === "block") {
+                    content.style.display = "none";
+                    button.innerHTML = '<i class="fas fa-plus-circle"></i> 查看详情';
+                } else {
+                    content.style.display = "block";
+                    button.innerHTML = '<i class="fas fa-minus-circle"></i> 收起详情';
+                }
+            }
+            
+            // 为所有按钮添加事件监听器
+            var allButtons = document.querySelectorAll(".collapse-btn");
+            for (var i = 0; i < allButtons.length; i++) {
+                allButtons[i].addEventListener("click", function() {
+                    toggleCollapse(this);
+                });
+            }
+        });
+        
+        // 保留原有函数以兼容内联onclick
         function toggleCollapse(button) {
             const content = button.nextElementSibling;
-            if (content.classList.contains('show')) {
-                content.classList.remove('show');
-                button.innerHTML = '<i class="fas fa-plus-circle"></i> 查看详情';
-            } else {
-                content.classList.add('show');
+            if (content.style.display === "none") {
+                content.style.display = "block";
                 button.innerHTML = '<i class="fas fa-minus-circle"></i> 收起详情';
+            } else {
+                content.style.display = "none";
+                button.innerHTML = '<i class="fas fa-plus-circle"></i> 查看详情';
             }
         }
     </script>
