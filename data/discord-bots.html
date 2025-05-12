@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord主流BOT定价与介绍</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #5865F2;
+            --accent-light: #7289DA;
+            --bg-dark: #1e1f22;
+            --bg-medium: #2b2d31;
+            --bg-light: #313338;
+            --text-normal: #dcddde;
+            --text-muted: #a3a6aa;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-normal);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .section {
+            background-color: var(--bg-medium);
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            border-radius: 0.25rem;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--accent-light);
+        }
+        
+        .section-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .bot-card {
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .bot-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .bot-header {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .bot-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .bot-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .pricing-table th {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+        
+        .pricing-table td {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-table tr:hover td {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        .price {
+            font-weight: 600;
+            color: #43b581;
+        }
+        
+        .free {
+            color: #43b581;
+        }
+        
+        .premium {
+            color: #faa61a;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--accent-light);
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list li::before {
+            content: "•";
+            color: var(--accent-light);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5em;
+        }
+        
+        .community-analysis {
+            background-color: var(--bg-medium);
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .community-card {
+            background-color: var(--bg-light);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .community-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tag-ai {
+            background-color: rgba(88, 101, 242, 0.3);
+            color: #a5b0ff;
+        }
+        
+        .tag-game {
+            background-color: rgba(67, 181, 129, 0.3);
+            color: #a5ffcb;
+        }
+        
+        .tag-blockchain {
+            background-color: rgba(250, 166, 26, 0.3);
+            color: #ffe0a5;
+        }
+        
+        .tag-sandbox {
+            background-color: rgba(237, 66, 69, 0.3);
+            color: #ffa5a7;
+        }
+        
+        .collapse-btn {
+            background: none;
+            border: none;
+            color: var(--accent-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+        }
+        
+        .collapse-btn:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .collapse-content {
+            display: none;
+            padding-top: 0.5rem;
+        }
+        
+        .collapse-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+    <div class="container mx-auto max-w-6xl">
+        <div class="nav-links">
+            <a href="/coding-study/index.html" class="nav-link">
+                <i class="fas fa-home"></i> 返回主页
+            </a>
+            <a href="/coding-study/data/discord.html" class="nav-link">
+                <i class="fab fa-discord"></i> 查看Discord平台分析
+            </a>
+        </div>
+        
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Discord主流BOT定价与介绍</h1>
+            <p class="text-lg text-gray-400">全方位解析流行Discord机器人的功能特点与价格体系</p>
+        </header>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-robot"></i> 多功能实用型BOT</h2>
+            
+            <!-- MEE6 -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">MEE6</div>
+                    <div class="bot-description">一款功能全面、易于使用且受全球数百万 Discord 服务器信赖的多功能机器人，可用于管理服务器、提升互动、实现任务自动化，还能通过插件系统定制，以满足不同服务器的个性化需求。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐类型</th>
+                                <th>价格</th>
+                                <th>优惠说明</th>
+                                <th>特点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">终身</td>
+                                <td class="price premium">45.00 美元 / 终身<br><span class="text-xs text-gray-400">（原价 89.99 美元，一次性付款）</span></td>
+                                <td>性价比最高</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>最便宜</li>
+                                        <li>7 天内保证退款</li>
+                                        <li>可转移到另一个服务器</li>
+                                        <li>机器人个性化附加元件</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">每年</td>
+                                <td class="price">2.09 美元 / 月<br><span class="text-xs text-gray-400">（第一年 25.00 美元，之后 49.99 美元 / 年，原价 143.88 美元）</span></td>
+                                <td>省下 83%</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>7 天内保证退款</li>
+                                        <li>可转移到另一个服务器</li>
+                                        <li>机器人个性化附加元件</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">每月</td>
+                                <td class="price">6.00 美元 / 月<br><span class="text-xs text-gray-400">（原价 11.99 美元）</span></td>
+                                <td>省下 50%</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>7 天内保证退款</li>
+                                        <li>可转移到另一个服务器</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Dyno -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Dyno</div>
+                    <div class="bot-description">Discord 平台上广受欢迎的多功能机器人，能提供自动审核、角色管理、自定义命令、日志记录、音乐播放、自动欢迎告别消息等功能，助力管理员高效管理服务器。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐名称</th>
+                                <th>价格（美元 / 月）</th>
+                                <th>包含内容</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Standard</td>
+                                <td class="price">4.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>无限制命令和模块</li>
+                                        <li>高级自动审核</li>
+                                        <li>高级星板</li>
+                                        <li>自动清理</li>
+                                        <li>慢速模式</li>
+                                        <li>语音 - 文本链接</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Premium</td>
+                                <td class="price">6.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>Standard 套餐全部内容</li>
+                                        <li>Twitch 集成</li>
+                                        <li>YouTube 集成</li>
+                                        <li>TikTok 集成</li>
+                                        <li>Reddit 集成</li>
+                                        <li>Kick 集成</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Custom</td>
+                                <td class="price premium">11.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>Premium 套餐全部内容</li>
+                                        <li>可上传头像</li>
+                                        <li>自定义用户名</li>
+                                        <li>自定义机器人状态</li>
+                                        <li>更高性能和正常运行时间</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Carl-bot -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Carl-bot</div>
+                    <div class="bot-description">一款功能强大且高度可定制的模块化 Discord 机器人，具备自动化欢迎告别、高级身份组管理、自定义命令、自动审核等多种功能，能有效提升服务器管理效率与用户互动体验。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐名称</th>
+                                <th>价格（美元 / 月）</th>
+                                <th>包含权益</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Carlbot Premium</td>
+                                <td class="price">5</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>等级功能</li>
+                                        <li>定时反应角色</li>
+                                        <li>1000 个反应角色上限</li>
+                                        <li>500 条更高的网络日志限制</li>
+                                        <li>自动标记星板新条目</li>
+                                        <li>即时自动推送</li>
+                                        <li>短自动推送中的角色提及切换</li>
+                                        <li>更高的清理限制</li>
+                                        <li>语音 - 角色链接</li>
+                                        <li>单个标签中的多个命令块</li>
+                                        <li>来自 Drama 的快速自动审核操作</li>
+                                        <li>观察频道</li>
+                                        <li>Discord 权限</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Turtle King</td>
+                                <td class="price">10</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>适用于 3 个服务器的高级功能</li>
+                                        <li>包含 Carlbot Premium 套餐所有权益</li>
+                                        <li>Discord 权限</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">$$$</td>
+                                <td class="price premium">25</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>适用于 8 个服务器的高级功能</li>
+                                        <li>包含 Turtle King 套餐所有权益</li>
+                                        <li>乌龟的永恒之爱</li>
+                                        <li>Discord 权限</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-gamepad"></i> 游戏与互动类机器人</h2>
+            
+            <!-- Arcane bot -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Arcane bot</div>
+                    <div class="bot-description">一款多功能 Discord 机器人，具备等级系统、自动分配角色、全局排名、迷你游戏、自动审核、设置自定义命令等功能，可提升社区活跃度、促进成员参与并协助管理服务器。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>对比项目</th>
+                                <th>免费版</th>
+                                <th>高级版</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>基础功能</td>
+                                <td>有基础功能和配置</td>
+                                <td>有基础功能和配置</td>
+                            </tr>
+                            <tr>
+                                <td>语音等级系统（语音升级 / 经验值）</td>
+                                <td>有</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>自定义语音经验值</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>消息等级系统（消息升级 / 经验值）</td>
+                                <td>有</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>自定义经验值</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>反应等级系统（反应升级 / 经验值）</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>自定义反应经验值</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>自定义等级图像</td>
+                                <td>无</td>
+                                <td>有</td>
+                            </tr>
+                            <tr>
+                                <td>角色奖励数量</td>
+                                <td>15 个</td>
+                                <td>无限制</td>
+                            </tr>
+                            <tr>
+                                <td>价格</td>
+                                <td class="price free">免费</td>
+                                <td class="price">月度计划：7 美元 / 月<br>年度计划：75 美元 / 年</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-2 text-sm text-gray-400">注：表格仅显示部分功能对比，完整功能列表请参考官方网站</div>
+                </div>
+            </div>
+            
+            <!-- Dank Memer -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Dank Memer</div>
+                    <div class="bot-description">一款广受欢迎的多功能 Discord 机器人，拥有货币系统、丰富的梗图和游戏功能，能让用户在服务器内赚取、管理虚拟货币，玩小游戏，分享和制作梗图，为用户带来娱乐和互动体验。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>套餐名称</th>
+                                <th>价格（美元 / 月）</th>
+                                <th>权益</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Meme Enthusiast</td>
+                                <td class="price">3.99</td>
+                                <td>1 个会员包、1 个工具箱、5 天 50% 金币乘数、5 天 1.05 倍经验值乘数、2,500,000 金币、15 项其他特权</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Elite Memer</td>
+                                <td class="price">6.99</td>
+                                <td>1 个会员框、1 个会员包、1 个工具箱、5 天 100% 金币乘数、5 天 1.15 倍经验值乘数、8,000,000 金币、15 项其他特权</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Platinum Memer</td>
+                                <td class="price">11.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>1 个会员框、1 个会员包、1 个工具箱</li>
+                                        <li>5 天 200% 金币乘数、5 天 1.20 倍经验值乘数</li>
+                                        <li>10,000,000 金币、15 项其他特权</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Meme Maestro</td>
+                                <td class="price premium">24.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>2 个会员框、1 个会员包、1 个工具箱</li>
+                                        <li>1 周 250% 金币乘数、1 周 1.25 倍经验值乘数</li>
+                                        <li>25,000,000 金币、15 项其他特权</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Meme Mogul</td>
+                                <td class="price premium">49.99</td>
+                                <td>
+                                    <ul class="feature-list">
+                                        <li>3 个会员框、3 个会员包、1 个工具箱</li>
+                                        <li>1 周 300% 金币乘数、1 周 1.50 倍经验值乘数</li>
+                                        <li>35,000,000 金币、15 项其他特权</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Pokémon bot -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Pokémon bot</div>
+                    <div class="bot-description">一款基于 Discord 的宝可梦主题机器人，它能让玩家在 Discord 服务器中体验捕捉、交易、对战宝可梦等游戏玩法，还具备用户友好的界面和多种实用功能。</div>
+                </div>
+                <div class="p-4">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>碎片数量</th>
+                                <th>价格（美元）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>500 Shards</td>
+                                <td class="price">5</td>
+                            </tr>
+                            <tr>
+                                <td>1,100 Shards</td>
+                                <td class="price">10</td>
+                            </tr>
+                            <tr>
+                                <td>2,400 Shards</td>
+                                <td class="price">20</td>
+                            </tr>
+                            <tr>
+                                <td>5,600 Shards</td>
+                                <td class="price">40</td>
+                            </tr>
+                            <tr>
+                                <td>15,000 Shards</td>
+                                <td class="price premium">100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- YEE 式机器龙 -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">YEE 式机器龙</div>
+                    <div class="bot-description">由 yeecord 团队开发并在 GitHub 开源的全中文 Discord 机器人，集成音乐系统、RPG、动态语音频道、跨群聊天等功能，丰富了 Discord 的应用场景。</div>
+                </div>
+                <div class="p-4">
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-gift text-green-400 mr-3 text-xl"></i>
+                            <p class="text-green-300 font-bold">完全免费开源</p>
+                        </div>
+                        <p class="mt-2 text-gray-300">YEE 式机器龙是一款完全免费且开源的 Discord 机器人，无需支付任何费用即可使用全部功能。</p>
+                        <div class="mt-3">
+                            <a href="https://github.com/yeecord/yeecord" target="_blank" class="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded-md text-sm">
+                                <i class="fab fa-github"></i> GitHub 开源项目
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-star"></i> 特色动漫类机器人</h2>
+            
+            <!-- Nekotina -->
+            <div class="bot-card">
+                <div class="bot-header">
+                    <div class="bot-name">Nekotina</div>
+                    <div class="bot-description">一款受超 300 万服务器信赖的 Discord 机器人，以可爱动漫猫娘形象呈现，提供角色扮演、游戏、实用工具等多样功能，能定制欢迎、告别消息，拥有丰富指令和海量动图，还有完整货币系统，助力提升服务器趣味性与互动性。</div>
+                </div>
+                <div class="p-4">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-accent-light mb-2">个人支持等级</h3>
+                        <table class="pricing-table">
+                            <thead>
+                                <tr>
+                                    <th>支持等级</th>
+                                    <th>价格（每月）</th>
+                                    <th>主要权益</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">Premium Tier</td>
+                                    <td class="price">2 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>主机器人音乐指令访问权</li>
+                                            <li>每 24 小时 1 个 Galaxia 镐</li>
+                                            <li>专属访问 Meteora 矿</li>
+                                            <li>每两周 1 个 Premium 箱子</li>
+                                            <li>采矿、钓鱼和探索总掉落率额外 + 4%</li>
+                                            <li>部分指令无需投票</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Platinum Tier</td>
+                                    <td class="price">4 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>包含 Premium Tier 所有权益</li>
+                                            <li>额外金币（!weekly）</li>
+                                            <li>每 24 小时共 2 个 Galaxia 镐和 2 个 Nebel 钓竿</li>
+                                            <li>每两周 1 个 Platinum 箱子</li>
+                                            <li>采矿、钓鱼和探索总掉落率额外 + 8%</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Lover Tier</td>
+                                    <td class="price">8 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>包含 Premium Tier、Platinum Tier 和 DJ Tier 所有权益</li>
+                                            <li>每 24 小时共 3 个 Galaxia 镐和 3 个 Nebel 钓竿</li>
+                                            <li>每两周 1 个 Diamond 箱子</li>
+                                            <li>采矿、钓鱼和探索总掉落率额外 + 12%</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Master Tier</td>
+                                    <td class="price premium">20 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>定制专属宠物</li>
+                                            <li>每项属性最高 20 点，共 50 点可分配</li>
+                                            <li>包含 Premium Tier、Platinum Tier、DJ Tier 和 Lover Tier 所有权益</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-accent-light mb-2">服务器支持等级</h3>
+                        <table class="pricing-table">
+                            <thead>
+                                <tr>
+                                    <th>支持等级</th>
+                                    <th>价格（每月）</th>
+                                    <th>主要权益</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">Premium Server I</td>
+                                    <td class="price">6 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>所选服务器所有成员可使用音乐指令</li>
+                                            <li>所选服务器所有成员采矿和钓鱼获得更好物品几率 + 5%</li>
+                                            <li>礼物、分享和交易指令日志</li>
+                                            <li>最多同时进行 20 次抽奖活动</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Premium Server II</td>
+                                    <td class="price">10 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>最多为 3 个服务器提供 Premium 服务</li>
+                                            <li>包含 Premium Server I 所有奖励</li>
+                                            <li>服务器成员所有音乐奖励</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Premium Server III</td>
+                                    <td class="price premium">15 美元</td>
+                                    <td>
+                                        <ul class="feature-list">
+                                            <li>最多为 10 个服务器提供 Premium 服务</li>
+                                            <li>包含 Premium Server I 所有奖励</li>
+                                            <li>服务器成员所有音乐奖励</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 mb-4 text-center">
+            <p class="text-gray-400 text-sm">数据更新时间：2025年5月9日</p>
+            <p class="text-gray-500 text-xs mt-2">注：价格和功能可能随时变动，请以官方网站为准</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleCollapse(button) {
+            const content = button.nextElementSibling;
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                button.innerHTML = '<i class="fas fa-plus-circle"></i> 查看详情';
+            } else {
+                content.classList.add('show');
+                button.innerHTML = '<i class="fas fa-minus-circle"></i> 收起详情';
+            }
+        }
+    </script>
+
+    <!-- 添加跳转按钮 -->
+    <div class="text-center mt-4">
+        <a href="/coding-study/data/discord-bots.html" class="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white text-sm transition-colors duration-200">
+            <i class="fas fa-robot mr-1"></i> 主流BOT定价与介绍
+        </a>
+    </div>
+
+</body>
+</html>
