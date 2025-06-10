@@ -3,145 +3,2093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord研究资料</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>开化县长虹乡 · AI技术助力乡村振兴调研</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@11.0.0/dist/framer-motion.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --accent-color: #5865F2;
-            --accent-light: #7289DA;
-            --bg-dark: #1e1f22;
-            --bg-medium: #2b2d31;
-            --bg-light: #313338;
-            --text-normal: #dcddde;
-            --text-muted: #a3a6aa;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
         }
         
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-normal);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .gradient-red {
+            background: linear-gradient(135deg, #E31937 0%, rgba(227, 25, 55, 0.8) 50%, rgba(227, 25, 55, 0.6) 100%);
         }
         
-        .container {
-            max-width: 800px;
-            padding: 2rem;
+        .gradient-red-light {
+            background: linear-gradient(135deg, rgba(227, 25, 55, 0.1) 0%, rgba(227, 25, 55, 0.05) 100%);
         }
         
-        .card {
-            background-color: var(--bg-medium);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .gradient-starry {
+            background: radial-gradient(circle at 20% 80%, rgba(227, 25, 55, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(227, 25, 55, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(227, 25, 55, 0.1) 0%, transparent 50%);
         }
         
-        .link-card {
-            background-color: var(--bg-light);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            text-decoration: none;
+        .text-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
         }
         
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-light);
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
         
-        .icon-wrapper {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(227, 25, 55, 0.25);
         }
         
-        .icon {
-            font-size: 1.75rem;
-            color: white;
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
         
-        .link-content {
-            text-align: left;
+        .bento-large {
+            grid-column: span 2;
         }
         
-        .link-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
+        .bento-tall {
+            grid-row: span 2;
         }
         
-        .link-description {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        @media (max-width: 768px) {
+            .bento-large, .bento-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            /* 移动端优化 */
+            .container {
+                padding: 1rem;
+            }
+            
+            .text-8xl {
+                font-size: 3rem;
+            }
+            
+            .text-6xl {
+                font-size: 2.5rem;
+            }
+            
+            .text-4xl {
+                font-size: 1.8rem;
+            }
+            
+            .text-2xl {
+                font-size: 1.3rem;
+            }
+            
+            .px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .py-4 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            
+            .gap-8 {
+                gap: 1rem;
+            }
+            
+            .p-8 {
+                padding: 1rem;
+            }
+            
+            .mb-16 {
+                margin-bottom: 2rem;
+            }
+            
+            .mb-12 {
+                margin-bottom: 1.5rem;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .lg\:grid-cols-2 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .md\:grid-cols-3 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+            
+            .h-80 {
+                height: 12rem;
+            }
+            
+            .rounded-3xl {
+                border-radius: 1rem;
+            }
         }
         
-        .title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+        .parallax {
+            transform: translateZ(0);
+        }
+        
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+        
+        .starry-bg {
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .starry-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(227,25,55,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(227,25,55,0.6), transparent),
+                radial-gradient(1px 1px at 200px 60px, #fff, transparent),
+                radial-gradient(3px 3px at 250px 20px, rgba(227,25,55,0.4), transparent);
+            background-repeat: repeat;
+            background-size: 300px 200px;
+            animation: sparkle 30s linear infinite;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .starry-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(-100px) translateY(-50px) rotate(0deg); }
+            50% { transform: translateX(100px) translateY(50px) rotate(180deg); }
+            100% { transform: translateX(-100px) translateY(-50px) rotate(360deg); }
+        }
+        
+        .line-decoration {
+            position: relative;
+        }
+        
+        .line-decoration::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -50px;
+            width: 30px;
+            height: 2px;
+            background: #E31937;
+            transform: translateY(-50%);
+        }
+        
+        .number-highlight {
+            background: linear-gradient(45deg, #E31937, rgba(227, 25, 55, 0.7));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+        /* Enhanced card effects */
+        .enhanced-card {
+            background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(20,20,20,0.9));
+            border: 1px solid rgba(227, 25, 55, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(227, 25, 55, 0.1), transparent);
+            transition: left 0.6s;
+        }
+        
+        .enhanced-card:hover::before {
+            left: 100%;
+        }
+        
+        .enhanced-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(227, 25, 55, 0.6);
+            box-shadow: 0 20px 40px rgba(227, 25, 55, 0.2), 0 0 20px rgba(227, 25, 55, 0.1);
+        }
+        
+        /* Gradient text animation */
+        .gradient-text {
+            background: linear-gradient(45deg, #E31937, #ff6b6b, #E31937);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Scroll reveal animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Pulse glow effect */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(227, 25, 55, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(227, 25, 55, 0.6), 0 0 60px rgba(227, 25, 55, 0.3); }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1 class="title">Discord研究资料</h1>
-        <p class="subtitle">关于Discord平台的生态系统与主流机器人资料汇总</p>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden starry-bg">
+        <div class="absolute inset-0 gradient-starry"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-float">
+                <div class="mb-8">
+                    <span class="text-red-500 text-lg font-medium tracking-widest uppercase">AI Technology · Rural Revitalization</span>
+                </div>
+                <h1 class="text-7xl md:text-8xl font-black mb-6 text-shadow leading-tight">
+                    长虹乡
+                    <span class="block text-5xl md:text-6xl number-highlight font-black">星空古村</span>
+                    <span class="block text-3xl md:text-4xl text-gray-300 font-light mt-4">CHANGHONG TOWNSHIP</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    探索中华暗夜星空保护地 · 挖掘千年古村文化底蕴 · 见证乡村振兴创新实践
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="enhanced-card rounded-2xl p-6 pulse-glow">
+                        <i class="fas fa-star text-red-500 text-3xl mb-4 animate-pulse-slow"></i>
+                        <div class="text-2xl font-bold gradient-text">华东最佳观星地</div>
+                        <div class="text-gray-400 text-sm mt-2">波特尔暗夜分类二级</div>
+                        <div class="text-xs text-red-400 mt-1 opacity-80">BEST STARGAZING SPOT</div>
+                    </div>
+                    <div class="enhanced-card rounded-2xl p-6">
+                        <i class="fas fa-mountain text-red-500 text-3xl mb-4 animate-float"></i>
+                        <div class="text-2xl font-bold gradient-text">江南布达拉宫</div>
+                        <div class="text-gray-400 text-sm mt-2">台回山景区</div>
+                        <div class="text-xs text-red-400 mt-1 opacity-80">TAIHUISHAN SCENIC AREA</div>
+                    </div>
+                    <div class="enhanced-card rounded-2xl p-6">
+                        <i class="fas fa-leaf text-red-500 text-3xl mb-4 animate-pulse-slow"></i>
+                        <div class="text-3xl font-black number-highlight">85.1%</div>
+                        <div class="text-gray-400 text-sm mt-2">森林覆盖率</div>
+                        <div class="text-xs text-red-400 mt-1 opacity-80">FOREST COVERAGE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <div class="card">
-            <a href="/coding-study/data/discord.html" class="link-card">
-                <div class="icon-wrapper">
-                    <i class="fab fa-discord icon"></i>
-                </div>
-                <div class="link-content">
-                    <h2 class="link-title">Discord发展历程与生态系统</h2>
-                    <p class="link-description">深入分析Discord的发展历程、商业模式、社区生态与未来趋势</p>
-                </div>
-            </a>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-red-500 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-red-500 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Overview Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4 line-decoration">
+                    比赛概览
+                    <span class="block text-2xl text-gray-400 font-normal mt-2">Competition Overview</span>
+                </h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    阿里云 × 开化县人民政府联合发起，聚焦长虹乡特色文化IP与农文旅融合发展
+                </p>
+            </div>
             
-            <a href="/coding-study/data/discord-bots.html" class="link-card">
-                <div class="icon-wrapper">
-                    <i class="fas fa-robot icon"></i>
+            <div class="bento-grid">
+                <!-- 比赛核心信息 -->
+                <div class="bento-large bg-gray-900 rounded-3xl p-8 card-hover gradient-red-light border border-red-500 border-opacity-20">
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-4xl font-black">AI技术助力乡村振兴</h3>
+                        <i class="fas fa-trophy text-red-500 text-4xl animate-pulse-slow"></i>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-6xl font-black number-highlight mb-3">10万</div>
+                            <div class="text-gray-400 text-lg">擂主奖金 (万元)</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-6xl font-black number-highlight mb-3">300</div>
+                            <div class="text-gray-400 text-lg">算力资源 (元)</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-6xl font-black number-highlight mb-3">3</div>
+                            <div class="text-gray-400 text-lg">竞赛命题</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <span class="bg-red-500 text-white px-6 py-3 rounded-full text-lg font-bold">
+                            发榜单位：阿里云
+                        </span>
+                    </div>
                 </div>
-                <div class="link-content">
-                    <h2 class="link-title">Discord主流BOT定价与介绍</h2>
-                    <p class="link-description">详细介绍Discord平台上流行机器人的功能、定价与使用场景</p>
+                
+                <!-- 长虹乡特色 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
+                        长虹乡核心特色
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-gray-800 rounded-xl">
+                            <i class="fas fa-star text-yellow-400 mr-3"></i>
+                            <span class="text-gray-300">中华暗夜星空保护地</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-xl">
+                            <i class="fas fa-mountain text-green-400 mr-3"></i>
+                            <span class="text-gray-300">江南布达拉宫台回山</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-xl">
+                            <i class="fas fa-home text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">高田坑千年古村落</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-xl">
+                            <i class="fas fa-award text-red-400 mr-3"></i>
+                            <span class="text-gray-300">国家4A级景区</span>
+                        </div>
+                    </div>
                 </div>
-            </a>
+                
+                <!-- 五大文化IP -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-palette text-red-500 mr-3"></i>
+                        五大文化IP
+                    </h3>
+                    <div class="grid grid-cols-1 gap-3">
+                        <div class="bg-gradient-to-r from-red-500 to-red-600 text-white p-3 rounded-lg text-center font-bold">
+                            钱王文化
+                        </div>
+                        <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white p-3 rounded-lg text-center font-bold">
+                            状元文化
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 rounded-lg text-center font-bold">
+                            星空文化
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 rounded-lg text-center font-bold">
+                            范氏文化
+                        </div>
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded-lg text-center font-bold">
+                            红色文化
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Travel Itinerary Section -->
+    <section class="py-20 px-6 bg-gray-950 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute inset-0 starry-bg opacity-30"></div>
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500"></div>
         
-        <div class="text-sm text-gray-500 mt-4">
-            <p>©2025 Discord研究项目 | 项目部署于GitHub Pages</p>
+        <div class="container mx-auto relative z-10">
+            <!-- 标题区域 -->
+            <div class="text-center mb-20">
+                <div class="inline-block mb-6">
+                    <span class="text-red-500 text-sm font-bold tracking-widest uppercase">CHANGHONG TOWNSHIP</span>
+                </div>
+                <h2 class="text-8xl font-black mb-6 bg-gradient-to-r from-purple-400 via-red-500 to-yellow-400 bg-clip-text text-transparent">
+                    长虹乡深度游
+                </h2>
+                <div class="text-2xl text-gray-300 mb-8">
+                    <span class="text-purple-400">探索星空古村</span> · 
+                    <span class="text-red-400">体验暗夜奇观</span> · 
+                    <span class="text-yellow-400">感受千年文化</span>
+                </div>
+                <div class="flex justify-center items-center space-x-8 text-sm text-gray-400">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                        开化县域西北部
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-tree text-green-400 mr-2"></i>
+                        森林覆盖率85.1%
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400 mr-2"></i>
+                        国家4A级景区
+                    </div>
+                </div>
+            </div>
+
+            <!-- 路线概览 -->
+            <div class="mb-16">
+                <div class="bg-gray-900 rounded-3xl p-8 border border-red-500 border-opacity-30 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-red-400 mb-4">🗺️ 智能路线规划</h3>
+                        <p class="text-gray-300">基于高德地图数据的最优行程安排</p>
+                    </div>
+                    
+                    <!-- 路线图 -->
+                    <div class="relative">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex-1 text-center">
+                                <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse">
+                                    <i class="fas fa-star text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-yellow-400">高田坑</h4>
+                                <p class="text-xs text-gray-400">星空古村落</p>
+                            </div>
+                            
+                            <div class="flex-1 relative">
+                                <div class="h-1 bg-gradient-to-r from-yellow-500 to-purple-500 relative">
+                                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 w-8 h-8 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-route text-white text-xs"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <span class="text-xs text-red-400 font-bold">11.2KM</span>
+                                    <br>
+                                    <span class="text-xs text-gray-400">33分钟</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 text-center">
+                                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse">
+                                    <i class="fas fa-mountain text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-purple-400">台回山</h4>
+                                <p class="text-xs text-gray-400">江南布达拉宫</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button onclick="window.open('https://ditu.amap.com/search?query=高田坑古村落&city=330824')" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-xl font-bold hover:from-red-600 hover:to-red-700 transition-all transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-mobile-alt mr-2"></i>
+                            在高德地图中查看完整行程
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 详细行程 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <!-- 第一天：高田坑 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-yellow-500 border-opacity-30 group">
+                    <!-- 真实图片背景 -->
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="http://aos-cdn-image.amap.com/sns/ugccomment/f34b8473-880c-4243-a602-6e2201cf575b.jpg" 
+                             alt="七彩长虹高田坑古村落" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold flex items-center">
+                                <i class="fas fa-calendar-day mr-2"></i>
+                                第一天
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="text-4xl font-black text-white mb-2">高田坑古村落</h3>
+                            <p class="text-yellow-300 text-lg font-bold">中华暗夜星空保护地 · 千年古村</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- 景区介绍 -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-yellow-400 mb-4">⭐ 核心特色</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                高田坑古村落是全国仅有的6个"中华暗夜星空保护地"之一，被誉为"中国最美星空古村落"。
+                                这里光污染几乎为零，达到"波特尔暗夜分类二级"标准，天空通透度堪比青藏高原，是华东最佳观星地。
+                            </p>
+                        </div>
+                        
+                        <!-- 详细行程 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gray-800 p-6 rounded-xl">
+                                <h5 class="text-lg font-bold text-yellow-400 mb-4 flex items-center">
+                                    <i class="fas fa-star mr-2"></i>
+                                    星空体验
+                                </h5>
+                                <ul class="space-y-3 text-sm text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-eye text-purple-400 mr-3 w-4"></i>
+                                        波特尔暗夜二级标准观星
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-telescope text-blue-400 mr-3 w-4"></i>
+                                        专业天文观测设备体验
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-campground text-green-400 mr-3 w-4"></i>
+                                        星宿高田·星空露营基地
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-camera text-red-400 mr-3 w-4"></i>
+                                        星空摄影指导服务
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 p-6 rounded-xl">
+                                <h5 class="text-lg font-bold text-yellow-400 mb-4 flex items-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    时间安排
+                                </h5>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">14:00</span>
+                                        <span class="text-gray-300">抵达高田坑古村落</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">15:00</span>
+                                        <span class="text-gray-300">千年红豆杉·观音廊桥</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">18:00</span>
+                                        <span class="text-gray-300">农家晚餐·黄金茶楼</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">20:00</span>
+                                        <span class="text-gray-300">星空观测·天文体验</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">22:00</span>
+                                        <span class="text-gray-300">露营体验或民宿住宿</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 导航按钮 -->
+                        <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-black p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h5 class="font-bold text-lg mb-2">📍 导航信息</h5>
+                                    <p class="text-sm opacity-90">七彩长虹高田坑古村落 · 长虹乡</p>
+                                    <p class="text-xs opacity-75">坐标: 118.230019, 29.313549</p>
+                                </div>
+                                <button onclick="window.open('https://uri.amap.com/navigation?to=118.230019,29.313549&toname=七彩长虹高田坑古村落&mode=car')" 
+                                        class="bg-white text-orange-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors flex items-center">
+                                    <i class="fas fa-navigation mr-2"></i>
+                                    立即导航
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第二天：台回山 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-purple-500 border-opacity-30 group">
+                    <!-- 真实图片背景 -->
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="https://aos-comment.amap.com/B0FFGB1YYY/comment/content_media_external_images_media_428176_ss__1725964380477_10666142.jpg" 
+                             alt="七彩长虹台回山" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-6 left-6">
+                            <div class="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center">
+                                <i class="fas fa-calendar-day mr-2"></i>
+                                第二天
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <h3 class="text-4xl font-black text-white mb-2">台回山景区</h3>
+                            <p class="text-purple-300 text-lg font-bold">江南布达拉宫 · 钱江源国家公园</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- 景区介绍 -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-purple-400 mb-4">🏔️ 核心特色</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                台回山被誉为"江南布达拉宫"，以其独特的梯田式古村落建筑风格闻名。村落依山而建，层层叠叠，
+                                远观如布达拉宫般壮观。这里是钱江源国家公园的重要组成部分，森林覆盖率高达85.1%。
+                            </p>
+                        </div>
+                        
+                        <!-- 详细行程 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-gray-800 p-6 rounded-xl">
+                                <h5 class="text-lg font-bold text-purple-400 mb-4 flex items-center">
+                                    <i class="fas fa-map-marked-alt mr-2"></i>
+                                    核心景点
+                                </h5>
+                                <ul class="space-y-3 text-sm text-gray-300">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-camera text-yellow-400 mr-3 w-4"></i>
+                                        钱江源国家公园台回山观景台
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-home text-blue-400 mr-3 w-4"></i>
+                                        梯田式古村落建筑群
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-utensils text-red-400 mr-3 w-4"></i>
+                                        云雾山庄特色农家菜
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-train text-green-400 mr-3 w-4"></i>
+                                        下午返程高铁站
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 p-6 rounded-xl">
+                                <h5 class="text-lg font-bold text-purple-400 mb-4 flex items-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    时间安排
+                                </h5>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">09:00</span>
+                                        <span class="text-gray-300">从高田坑出发前往台回山</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">10:00</span>
+                                        <span class="text-gray-300">登山观景台拍照打卡</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">12:00</span>
+                                        <span class="text-gray-300">云雾山庄品尝农家菜</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">14:00</span>
+                                        <span class="text-gray-300">古村落文化深度体验</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="text-yellow-400 font-bold mr-3 w-12">17:00</span>
+                                        <span class="text-gray-300">返程前往高铁站</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 导航按钮 -->
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h5 class="font-bold text-lg mb-2">📍 导航信息</h5>
+                                    <p class="text-sm opacity-90">七彩长虹台回山 · 长虹乡</p>
+                                    <p class="text-xs opacity-75">坐标: 118.213732, 29.277417</p>
+                                </div>
+                                <button onclick="window.open('https://uri.amap.com/navigation?to=118.213732,29.277417&toname=七彩长虹台回山&mode=car')" 
+                                        class="bg-white text-purple-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors flex items-center">
+                                    <i class="fas fa-navigation mr-2"></i>
+                                    立即导航
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 实用信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 住宿推荐 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-blue-500 border-opacity-30">
+                    <h4 class="text-2xl font-bold text-blue-400 mb-6 flex items-center">
+                        <i class="fas fa-bed mr-3"></i>
+                        住宿推荐
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h5 class="font-bold text-blue-300 mb-2">忆宿·云台居民宿</h5>
+                            <p class="text-sm text-gray-400 mb-2">台回山观景台店</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span>4.8分 · 山景房</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h5 class="font-bold text-blue-300 mb-2">星宿高田民宿</h5>
+                            <p class="text-sm text-gray-400 mb-2">高田坑古村落</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span>4.6分 · 星空房</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食推荐 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-green-500 border-opacity-30">
+                    <h4 class="text-2xl font-bold text-green-400 mb-6 flex items-center">
+                        <i class="fas fa-utensils mr-3"></i>
+                        美食推荐
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h5 class="font-bold text-green-300 mb-2">云雾山庄</h5>
+                            <p class="text-sm text-gray-400 mb-2">台回山特色农家菜</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <i class="fas fa-leaf text-green-400 mr-1"></i>
+                                <span>有机蔬菜 · 土鸡</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h5 class="font-bold text-green-300 mb-2">黄金茶楼</h5>
+                            <p class="text-sm text-gray-400 mb-2">高田坑古村茶文化</p>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <i class="fas fa-leaf text-green-400 mr-1"></i>
+                                <span>开化龙顶茶 · 茶点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 贴心提示 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-orange-500 border-opacity-30">
+                    <h4 class="text-2xl font-bold text-orange-400 mb-6 flex items-center">
+                        <i class="fas fa-lightbulb mr-3"></i>
+                        贴心提示
+                    </h4>
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div class="flex items-start">
+                            <i class="fas fa-thermometer-half text-blue-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <span>山区昼夜温差大，请准备保暖衣物</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-camera text-purple-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <span>观星最佳时间：晚上8点后，建议携带三脚架</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-hiking text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <span>山路较陡，建议穿着舒适的登山鞋</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-mobile-alt text-red-400 mr-3 mt-1 flex-shrink-0"></i>
+                            <span>山区信号较弱，建议提前下载离线地图</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+                
+                <!-- 实用信息 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-green-500 border-opacity-30">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-info-circle text-green-500 mr-3"></i>
+                        实用信息
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="text-lg font-bold text-green-400 mb-2">🏨 推荐住宿</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 忆宿·云台居民宿 (台回山观景台店)</li>
+                                <li>• 云雾山庄 (台回山37号)</li>
+                                <li>• 星空古村农家 (高田坑村)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="text-lg font-bold text-green-400 mb-2">🍽️ 特色美食</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 钱王七味 (云台居民宿)</li>
+                                <li>• 山中小筑农家菜</li>
+                                <li>• 当地土蜂蜜、山茶油</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="text-lg font-bold text-green-400 mb-2">📝 贴心提示</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 观星最佳时间：晚上8点后</li>
+                                <li>• 建议携带保暖衣物和手电筒</li>
+                                <li>• 山路较陡，注意行车安全</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Alignment Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    行程与比赛对应
+                    <span class="block text-2xl text-red-500 font-normal mt-2">ITINERARY COMPETITION ALIGNMENT</span>
+                </h2>
+                <p class="text-gray-400 text-lg">深度调研 · 精准对标 · 创意激发</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- 整体策略卡片 -->
+                <div class="bento-large bg-gray-900 rounded-3xl overflow-hidden card-hover border border-red-500 border-opacity-30">
+                    <div class="h-64 bg-gradient-to-br from-red-900 via-purple-900 to-indigo-900 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-bullseye text-red-400 text-6xl opacity-70 animate-pulse-slow"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            核心策略
+                        </div>
+                        <div class="absolute bottom-4 right-4 text-red-400 text-sm font-bold">
+                            🎯 精准对标
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-red-400">两日深度调研策略</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">本行程设计基于三大竞赛命题的核心需求，通过实地体验、文化挖掘、产品调研的方式，为参赛作品提供第一手资料和创意灵感。</p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-star text-purple-400 text-2xl mb-2"></i>
+                                <h4 class="text-lg font-bold text-purple-400 mb-1">星空IP调研</h4>
+                                <p class="text-xs text-gray-400">高田坑观星体验</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-mountain text-green-400 text-2xl mb-2"></i>
+                                <h4 class="text-lg font-bold text-green-400 mb-1">文化IP挖掘</h4>
+                                <p class="text-xs text-gray-400">台回山历史探索</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-seedling text-yellow-400 text-2xl mb-2"></i>
+                                <h4 class="text-lg font-bold text-yellow-400 mb-1">农特产调研</h4>
+                                <p class="text-xs text-gray-400">当地特产体验</p>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-red-500 to-purple-500 p-4 rounded-xl">
+                            <h4 class="text-white font-bold mb-2">💡 创意收获预期</h4>
+                            <p class="text-white text-sm opacity-90">通过沉浸式体验获得真实感受，为文创设计、IP开发、包装创新提供独特视角和情感共鸣点</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 选题一对应 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-purple-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-purple-900 to-indigo-900 relative starry-bg">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-star text-yellow-400 text-4xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            选题一对应
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">星空IP文创产品设计</h3>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-purple-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">高田坑观星基地</p>
+                                    <p class="text-xs text-gray-400">零光污染环境实地体验</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-eye text-purple-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">夜间观星活动</p>
+                                    <p class="text-xs text-gray-400">感受星空魅力与文化内涵</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-camera text-purple-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">素材收集</p>
+                                    <p class="text-xs text-gray-400">星空摄影、环境记录</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-purple-500 bg-opacity-20 p-3 rounded-lg">
+                            <p class="text-purple-400 text-xs font-bold mb-1">🎨 设计灵感来源</p>
+                            <p class="text-gray-300 text-xs">通过亲身体验获得星空观测的真实感受，为文创产品注入情感价值</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 选题二对应 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-red-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-red-900 to-orange-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-crown text-yellow-400 text-4xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            选题二对应
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-red-400">长虹文化IP设计</h3>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-mountain text-red-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">台回山景区</p>
+                                    <p class="text-xs text-gray-400">钱王文化历史遗迹探访</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-book text-red-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">文化故事收集</p>
+                                    <p class="text-xs text-gray-400">当地传说、历史典故</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-users text-red-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">村民访谈</p>
+                                    <p class="text-xs text-gray-400">了解范氏文化传承</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-red-500 bg-opacity-20 p-3 rounded-lg">
+                            <p class="text-red-400 text-xs font-bold mb-1">🏛️ 文化挖掘重点</p>
+                            <p class="text-gray-300 text-xs">深入了解五大文化脉络，为IP设计提供丰富的文化底蕴</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 选题三对应 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-green-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-green-900 to-emerald-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-seedling text-green-400 text-4xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            选题三对应
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-green-400">农特产品包装设计</h3>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-store text-green-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">农家乐体验</p>
+                                    <p class="text-xs text-gray-400">品尝气糕干、山茶油等特产</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-industry text-green-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">生产过程了解</p>
+                                    <p class="text-xs text-gray-400">传统工艺与现代包装现状</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-shopping-basket text-green-400 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-300">市场调研</p>
+                                    <p class="text-xs text-gray-400">现有包装分析、改进空间</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-green-500 bg-opacity-20 p-3 rounded-lg">
+                            <p class="text-green-400 text-xs font-bold mb-1">📦 包装创新方向</p>
+                            <p class="text-gray-300 text-xs">结合当地文化元素，提升产品附加值和市场竞争力</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 行程优化建议 -->
+                <div class="bento-large bg-gray-900 rounded-3xl overflow-hidden card-hover border border-yellow-500 border-opacity-30">
+                    <div class="h-64 bg-gradient-to-br from-yellow-900 via-orange-900 to-red-900 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-route text-yellow-400 text-6xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold">
+                            优化建议
+                        </div>
+                        <div class="absolute bottom-4 right-4 text-yellow-400 text-sm font-bold">
+                            🚀 效率提升
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-yellow-400">行程优化与调研重点</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">基于竞赛评审标准（创意创新30%、实用性25%、美观性20%、文化内涵15%、技术实现10%），优化调研重点和时间分配。</p>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-bold text-yellow-400 mb-3">📋 调研清单优化</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center text-sm">
+                                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                        <span class="text-gray-300">增加村民深度访谈环节</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                        <span class="text-gray-300">现有产品包装收集分析</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                        <span class="text-gray-300">星空摄影素材库建立</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                                        <span class="text-gray-300">文化故事音频记录</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-bold text-yellow-400 mb-3">⏰ 时间分配建议</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-300">文化调研</span>
+                                        <span class="text-yellow-400 font-bold">40%</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-300">星空体验</span>
+                                        <span class="text-purple-400 font-bold">30%</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-300">产品调研</span>
+                                        <span class="text-green-400 font-bold">20%</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-300">素材整理</span>
+                                        <span class="text-blue-400 font-bold">10%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-yellow-500 to-orange-500 p-4 rounded-xl">
+                            <h4 class="text-white font-bold mb-2">🎯 核心竞争优势</h4>
+                            <p class="text-white text-sm opacity-90">通过实地深度调研获得的第一手资料和真实体验，将成为作品的核心竞争优势，确保创意的原创性和文化的真实性</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Topics Section -->
+    <section class="py-20 px-6 bg-gray-950">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    三大竞赛命题
+                    <span class="block text-2xl text-red-500 font-normal mt-2">COMPETITION TOPICS</span>
+                </h2>
+                <p class="text-gray-400 text-lg">聚焦长虹乡特色文化IP · 推动农文旅融合发展</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- 选题一：星空IP文创产品设计 -->
+                <div class="bento-large bg-gray-900 rounded-3xl overflow-hidden card-hover border border-purple-500 border-opacity-30">
+                    <div class="h-64 bg-gradient-to-br from-purple-900 via-indigo-900 to-black relative starry-bg">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-star text-yellow-400 text-6xl opacity-70 animate-pulse-slow"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            选题一
+                        </div>
+                        <div class="absolute bottom-4 right-4 text-yellow-400 text-sm">
+                            ⭐ 华东最佳观星地
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-purple-400">长虹特色"星空"IP文创产品设计</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">针对高田坑村独特的"暗夜星空文旅资源"，进行星空系列的文旅产品设计。深入体验星空的独特性、文化内涵以及其能带给游客的情感共鸣。</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-purple-400 mb-2">核心资源</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 波特尔暗夜分类二级标准</li>
+                                    <li>• 世界暗夜保护地名录</li>
+                                    <li>• 零光污染环境</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-purple-400 mb-2">设计方向</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 星空主题文创产品</li>
+                                    <li>• 观星体验周边</li>
+                                    <li>• 天文科普用品</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 px-3 py-1 rounded-full text-sm">星空文化</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-3 py-1 rounded-full text-sm">天文科普</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-3 py-1 rounded-full text-sm">文创设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 选题二：长虹乡域特色文化IP -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-red-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-red-900 to-orange-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-crown text-yellow-400 text-5xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            选题二
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-red-400">长虹乡域特色文化IP设计</h3>
+                        <p class="text-gray-300 text-sm mb-4">设计突出地域风格的"新潮爆款文创单品"</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">钱王文化</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">状元文化</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">星空文化</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">范氏文化</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">红色文化</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="bg-red-500 bg-opacity-20 text-red-400 px-2 py-1 rounded text-xs">文化挖掘</span>
+                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 px-2 py-1 rounded text-xs">IP设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 选题三：农特产品包装设计 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-green-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-green-900 to-emerald-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-seedling text-green-400 text-5xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            选题三
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-green-400">长虹农特产品包装设计</h3>
+                        <p class="text-gray-300 text-sm mb-4">包装提升、创新产品形态或组合产品设计</p>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-cookie-bite text-yellow-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">气糕干</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-tint text-yellow-600 mb-1"></i>
+                                <div class="text-sm text-gray-300">山茶油</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-fish text-blue-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">清水鱼</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-honey-pot text-amber-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">中蜂蜜</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded text-xs">包装设计</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-2 py-1 rounded text-xs">农产品</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 调研重点与评审标准 -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    调研重点
+                    <span class="block text-2xl text-red-500 font-normal mt-2">RESEARCH FOCUS & EVALUATION</span>
+                </h2>
+                <p class="text-gray-400 text-lg">评审标准 · 技术要求</p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- 创意与创新性 -->
+                <div class="bento-large bg-gray-900 rounded-3xl overflow-hidden card-hover border border-yellow-500 border-opacity-30">
+                    <div class="h-64 bg-gradient-to-br from-yellow-900 via-orange-900 to-red-900 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-yellow-400 text-6xl opacity-70 animate-pulse-slow"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold">
+                            30%权重
+                        </div>
+                        <div class="absolute bottom-4 right-4 text-yellow-400 text-sm font-bold">
+                            💡 核心评分
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-yellow-400">创意与创新性</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">评估作品的原创性思维、独特视角和创新解决方案。重点关注如何将传统文化元素与现代设计理念巧妙融合。</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-yellow-400 mb-2">评估要点</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 设计理念的原创性</li>
+                                    <li>• 文化元素的创新运用</li>
+                                    <li>• 解决方案的独特性</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-yellow-400 mb-2">调研方向</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 传统文化深度挖掘</li>
+                                    <li>• 现代设计趋势分析</li>
+                                    <li>• 目标用户需求洞察</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-3 py-1 rounded-full text-sm">原创思维</span>
+                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 px-3 py-1 rounded-full text-sm">文化融合</span>
+                            <span class="bg-red-500 bg-opacity-20 text-red-400 px-3 py-1 rounded-full text-sm">创新设计</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 文化呈现准确性 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-blue-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-blue-900 to-indigo-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-scroll text-blue-400 text-5xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            30%权重
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-400">文化呈现准确性与深度</h3>
+                        <p class="text-gray-300 text-sm mb-4">考察对长虹乡文化内涵的理解深度和表达准确性</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">钱王文化历史脉络</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">状元文化精神内核</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">星空文化独特价值</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">生态文化可持续性</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-2 py-1 rounded text-xs">文化研究</span>
+                            <span class="bg-indigo-500 bg-opacity-20 text-indigo-400 px-2 py-1 rounded text-xs">深度理解</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AIGC技术运用 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-purple-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-purple-900 to-pink-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-robot text-purple-400 text-5xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            30%权重
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-400">AIGC技术合理运用</h3>
+                        <p class="text-gray-300 text-sm mb-4">评估AI工具使用的专业性和创作效果</p>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-palette text-pink-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">PAI ArtLab</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-cloud text-blue-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">阿里云算力</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-brain text-purple-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">大模型能力</div>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg text-center">
+                                <i class="fas fa-magic text-yellow-400 mb-1"></i>
+                                <div class="text-sm text-gray-300">AIGC工具</div>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 px-2 py-1 rounded text-xs">AI技术</span>
+                            <span class="bg-pink-500 bg-opacity-20 text-pink-400 px-2 py-1 rounded text-xs">创作工具</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 环境友好性 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-green-500 border-opacity-30">
+                    <div class="text-center">
+                        <i class="fas fa-leaf text-green-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2 text-green-400">环境友好性</h3>
+                        <p class="text-gray-400 text-sm mb-3">10%权重</p>
+                        <p class="text-gray-300 text-sm">可持续发展理念融入</p>
+                        <div class="mt-4 flex justify-center gap-2">
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded text-xs">生态友好</span>
+                            <span class="bg-emerald-500 bg-opacity-20 text-emerald-400 px-2 py-1 rounded text-xs">可持续</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 奖励支持与技术要求 -->
+    <section class="py-20 px-6 bg-gray-950">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    奖励支持
+                    <span class="block text-2xl text-red-500 font-normal mt-2">AWARDS & TECHNICAL SUPPORT</span>
+                </h2>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- 奖励设置 -->
+                <div class="bento-large bg-gray-900 rounded-3xl p-8 card-hover border border-yellow-500 border-opacity-30">
+                    <h3 class="text-3xl font-bold mb-8 text-yellow-400">奖励设置</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center p-6 bg-gradient-to-r from-yellow-900 to-orange-900 rounded-xl border border-yellow-500 border-opacity-50">
+                            <i class="fas fa-crown text-yellow-400 text-3xl mr-6"></i>
+                            <div>
+                                <h4 class="text-2xl font-bold text-yellow-400">擂主奖</h4>
+                                <p class="text-gray-300 text-lg">奖金10万元 + 证书 + 奖杯</p>
+                                <p class="text-gray-400 text-sm mt-1">最高荣誉，唯一名额</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-gray-800 rounded-xl text-center">
+                                <i class="fas fa-medal text-red-400 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-red-400">特等奖</h5>
+                                <p class="text-gray-300 text-sm">丰厚奖金</p>
+                            </div>
+                            <div class="p-4 bg-gray-800 rounded-xl text-center">
+                                <i class="fas fa-trophy text-orange-400 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-orange-400">一等奖</h5>
+                                <p class="text-gray-300 text-sm">超级大礼包</p>
+                            </div>
+                            <div class="p-4 bg-gray-800 rounded-xl text-center">
+                                <i class="fas fa-award text-blue-400 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-blue-400">二等奖</h5>
+                                <p class="text-gray-300 text-sm">精美奖品</p>
+                            </div>
+                            <div class="p-4 bg-gray-800 rounded-xl text-center">
+                                <i class="fas fa-star text-green-400 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-green-400">三等奖</h5>
+                                <p class="text-gray-300 text-sm">纪念奖品</p>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-900 to-purple-900 p-4 rounded-xl border border-blue-500 border-opacity-30">
+                            <h5 class="font-bold text-blue-400 mb-2">🚀 职业发展机会</h5>
+                            <p class="text-gray-300 text-sm">优秀参赛者获得阿里云实习和工作内推机会</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 技术支持 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-purple-500 border-opacity-30">
+                    <h3 class="text-3xl font-bold mb-8 text-purple-400">技术支持</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-purple-900 to-pink-900 p-6 rounded-xl border border-purple-500 border-opacity-50">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-cloud text-purple-400 text-2xl mr-4"></i>
+                                <h4 class="text-xl font-bold text-purple-400">阿里云算力资源</h4>
+                            </div>
+                            <p class="text-gray-300 mb-2">每位参赛者提供价值300元算力资源</p>
+                            <p class="text-gray-400 text-sm">支持AI模型训练和推理</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-palette text-pink-400 text-2xl mr-4"></i>
+                                <h4 class="text-xl font-bold text-pink-400">PAI ArtLab平台</h4>
+                            </div>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• AIGC创作工具套件</li>
+                                <li>• 专业技术文档支持</li>
+                                <li>• 在线创作环境</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-brain text-blue-400 text-xl mb-2"></i>
+                                <h5 class="font-bold text-blue-400 text-sm">大模型能力</h5>
+                                <p class="text-gray-400 text-xs">AI创作助手</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-book text-green-400 text-xl mb-2"></i>
+                                <h5 class="font-bold text-green-400 text-sm">技术文档</h5>
+                                <p class="text-gray-400 text-xs">详细教程</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 作品提交要求 -->
+                <div class="bento-large bg-gray-900 rounded-3xl p-8 card-hover border border-red-500 border-opacity-30">
+                    <h3 class="text-3xl font-bold mb-8 text-red-400 text-center">作品提交要求</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="bg-gray-800 p-6 rounded-xl mb-4">
+                                <i class="fas fa-file-image text-red-400 text-3xl mb-4"></i>
+                                <h4 class="text-xl font-bold text-red-400 mb-2">设计文件</h4>
+                                <ul class="text-gray-300 text-sm space-y-1">
+                                    <li>• A3幅面，300dpi</li>
+                                    <li>• JPG格式</li>
+                                    <li>• 最多5张，每张≤5M</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gray-800 p-6 rounded-xl mb-4">
+                                <i class="fas fa-image text-blue-400 text-3xl mb-4"></i>
+                                <h4 class="text-xl font-bold text-blue-400 mb-2">宣传海报</h4>
+                                <ul class="text-gray-300 text-sm space-y-1">
+                                    <li>• 竖版A3，300dpi</li>
+                                    <li>• JPG格式</li>
+                                    <li>• 文件≤5M</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gray-800 p-6 rounded-xl mb-4">
+                                <i class="fas fa-exclamation-triangle text-yellow-400 text-3xl mb-4"></i>
+                                <h4 class="text-xl font-bold text-yellow-400 mb-2">重要规范</h4>
+                                <ul class="text-gray-300 text-sm space-y-1">
+                                    <li>• 不得出现作者姓名</li>
+                                    <li>• 不得出现学校名称</li>
+                                    <li>• 匿名提交作品</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 长虹乡特色资源 -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    长虹特色
+                    <span class="block text-2xl text-red-500 font-normal mt-2">CHANGHONG FEATURES</span>
+                </h2>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- 高田坑古村落 -->
+                <div class="bento-large bg-gray-900 rounded-3xl overflow-hidden card-hover border border-purple-500 border-opacity-30">
+                    <div class="h-64 bg-gradient-to-br from-purple-900 via-indigo-900 to-black relative starry-bg">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-star text-yellow-400 text-6xl opacity-70 animate-pulse-slow"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            核心景区
+                        </div>
+                        <div class="absolute bottom-4 right-4 text-yellow-400 text-sm font-bold">
+                            ⭐ 中华暗夜星空保护地
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4 text-purple-400">高田坑古村落</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">千年古村落，被誉为"中国最美星空古村落"。因云层稀薄、群山环绕，天空通透度堪比青藏高原，光污染几乎为零，达到"波特尔暗夜分类二级"标准。</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-purple-400 mb-2">星空资源</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 华东最佳观星地</li>
+                                    <li>• 世界暗夜保护地名录</li>
+                                    <li>• 零光污染环境</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-xl">
+                                <h4 class="text-lg font-bold text-purple-400 mb-2">文化价值</h4>
+                                <ul class="text-sm text-gray-300 space-y-1">
+                                    <li>• 质朴乡村风貌</li>
+                                    <li>• 悠久农耕文化</li>
+                                    <li>• 传统建筑群落</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-500 bg-opacity-20 text-purple-400 px-3 py-1 rounded-full text-sm">星空文化</span>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-3 py-1 rounded-full text-sm">古村保护</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-3 py-1 rounded-full text-sm">文旅融合</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 台回山 -->
+                <div class="bg-gray-900 rounded-3xl overflow-hidden card-hover border border-orange-500 border-opacity-30">
+                    <div class="h-48 bg-gradient-to-br from-orange-900 to-red-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-mountain text-orange-400 text-5xl opacity-70"></i>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            4A景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-orange-400">台回山</h3>
+                        <p class="text-gray-300 text-sm mb-4">"江南布达拉宫"，独特的视觉形象和文化概念</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-orange-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">梯田式建筑群</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">藏式建筑风格</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                                <span class="text-gray-300">宗教文化底蕴</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="bg-orange-500 bg-opacity-20 text-orange-400 px-2 py-1 rounded text-xs">建筑艺术</span>
+                            <span class="bg-red-500 bg-opacity-20 text-red-400 px-2 py-1 rounded text-xs">文化地标</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 五大文化IP -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-blue-500 border-opacity-30">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-scroll text-blue-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-blue-400">五大文化IP</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center p-3 bg-gray-800 rounded-lg">
+                            <span class="w-4 h-4 bg-red-500 rounded-full mr-3"></span>
+                            <span class="text-gray-300 font-medium">钱王文化</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-lg">
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full mr-3"></span>
+                            <span class="text-gray-300 font-medium">状元文化</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-lg">
+                            <span class="w-4 h-4 bg-purple-500 rounded-full mr-3"></span>
+                            <span class="text-gray-300 font-medium">星空文化</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-lg">
+                            <span class="w-4 h-4 bg-blue-500 rounded-full mr-3"></span>
+                            <span class="text-gray-300 font-medium">范氏文化</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-800 rounded-lg">
+                            <span class="w-4 h-4 bg-green-500 rounded-full mr-3"></span>
+                            <span class="text-gray-300 font-medium">红色文化</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 农特产品 -->
+                <div class="bg-gray-900 rounded-3xl p-8 card-hover border border-green-500 border-opacity-30">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-seedling text-green-400 text-4xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-green-400">特色农产品</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <i class="fas fa-cookie-bite text-yellow-400 text-2xl mb-2"></i>
+                            <h5 class="font-bold text-yellow-400 text-sm">气糕干</h5>
+                            <p class="text-gray-400 text-xs">传统糕点</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <i class="fas fa-tint text-yellow-600 text-2xl mb-2"></i>
+                            <h5 class="font-bold text-yellow-600 text-sm">山茶油</h5>
+                            <p class="text-gray-400 text-xs">天然油品</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <i class="fas fa-fish text-blue-400 text-2xl mb-2"></i>
+                            <h5 class="font-bold text-blue-400 text-sm">清水鱼</h5>
+                            <p class="text-gray-400 text-xs">生态养殖</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <i class="fas fa-honey-pot text-amber-400 text-2xl mb-2"></i>
+                            <h5 class="font-bold text-amber-400 text-sm">中蜂蜜</h5>
+                            <p class="text-gray-400 text-xs">纯天然蜂蜜</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术支持与参赛指南 -->
+    <section class="py-20 px-6 bg-gray-950">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-6xl font-black mb-4">
+                    技术支持
+                    <span class="block text-2xl text-red-500 font-normal mt-2">TECHNICAL SUPPORT</span>
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- 阿里云算力资源 -->
+                <div class="bg-gray-900 rounded-3xl p-8 border border-orange-500 border-opacity-30">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-cloud text-orange-400 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-orange-400">阿里云算力</h3>
+                        <div class="bg-orange-500 text-white px-4 py-2 rounded-full text-lg font-bold mt-4">
+                            ¥300 算力资源
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-orange-400 mb-2">PAI ArtLab平台</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• AIGC工具集成</li>
+                                <li>• 大模型能力</li>
+                                <li>• 云端计算资源</li>
+                                <li>• 技术文档支持</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-orange-400 mb-2">AI创作工具</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 图像生成模型</li>
+                                <li>• 文本创作助手</li>
+                                <li>• 设计优化算法</li>
+                                <li>• 智能排版工具</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 作品提交要求 -->
+                <div class="bg-gray-900 rounded-3xl p-8 border border-blue-500 border-opacity-30">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-file-upload text-blue-400 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-blue-400">提交要求</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-blue-400 mb-3">设计文件规格</h4>
+                            <div class="space-y-2 text-sm text-gray-300">
+                                <div class="flex justify-between">
+                                    <span>尺寸:</span>
+                                    <span class="text-blue-400">不小于A3幅面</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>分辨率:</span>
+                                    <span class="text-blue-400">300dpi</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>格式:</span>
+                                    <span class="text-blue-400">JPG</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>数量:</span>
+                                    <span class="text-blue-400">最多5张</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>大小:</span>
+                                    <span class="text-blue-400">每张≤5M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-blue-400 mb-3">宣传海报</h4>
+                            <div class="space-y-2 text-sm text-gray-300">
+                                <div class="flex justify-between">
+                                    <span>版式:</span>
+                                    <span class="text-blue-400">竖版A3</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>分辨率:</span>
+                                    <span class="text-blue-400">300dpi</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>大小:</span>
+                                    <span class="text-blue-400">≤5M</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-red-500 bg-opacity-20 border border-red-500 border-opacity-50 p-3 rounded-lg">
+                            <p class="text-red-400 text-sm font-bold">⚠️ 匿名要求</p>
+                            <p class="text-gray-300 text-xs mt-1">作品中不得出现作者姓名和学校名称</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 创作指南 -->
+                <div class="bg-gray-900 rounded-3xl p-8 border border-purple-500 border-opacity-30">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-lightbulb text-purple-400 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-purple-400">创作指南</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-purple-400 mb-3">核心要求</h4>
+                            <ul class="text-sm text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                    <span>基于AI工具和大模型能力进行创作</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                    <span>体现开化县乡村文旅特色</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                                    <span>融合长虹乡文化IP元素</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <h4 class="font-bold text-purple-400 mb-3">成果形式</h4>
+                            <div class="grid grid-cols-1 gap-2 text-sm text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-palette text-purple-400 mr-2"></i>
+                                    <span>完整VI设计方案</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-book text-purple-400 mr-2"></i>
+                                    <span>系列品牌故事</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-box text-purple-400 mr-2"></i>
+                                    <span>品牌包装设计</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-gift text-purple-400 mr-2"></i>
+                                    <span>文创周边产品</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-seedling text-purple-400 mr-2"></i>
+                                    <span>农产品包装</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-green-500 bg-opacity-20 border border-green-500 border-opacity-50 p-3 rounded-lg">
+                            <p class="text-green-400 text-sm font-bold">💡 创作提示</p>
+                            <p class="text-gray-300 text-xs mt-1">深入挖掘星空文化、钱王文化等特色IP，结合现代设计理念</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- 比赛信息 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-red-400">比赛信息</h3>
+                    <div class="space-y-2 text-gray-400 text-sm">
+                        <p><i class="fas fa-trophy mr-2 text-red-500"></i>AI技术助力乡村振兴比赛</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-red-500"></i>开化县长虹乡</p>
+                        <p><i class="fas fa-award mr-2 text-red-500"></i>擂主奖金10万元</p>
+                        <p><i class="fas fa-cloud mr-2 text-red-500"></i>阿里云技术支持</p>
+                    </div>
+                </div>
+                
+                <!-- 主办方 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-red-400">主办方</h3>
+                    <div class="space-y-2 text-gray-400 text-sm">
+                        <p><i class="fas fa-building mr-2 text-red-500"></i>阿里云</p>
+                        <p><i class="fas fa-heart mr-2 text-red-500"></i>阿里巴巴公益</p>
+                        <p><i class="fas fa-landmark mr-2 text-red-500"></i>开化县人民政府</p>
+                        <p><i class="fas fa-star mr-2 text-red-500"></i>长虹乡人民政府</p>
+                    </div>
+                </div>
+                
+                <!-- 联系方式 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-red-400">联系方式</h3>
+                    <div class="space-y-2 text-gray-400 text-sm">
+                        <p><i class="fas fa-phone mr-2 text-red-500"></i>开化县文旅局: 0570-6012345</p>
+                        <p><i class="fas fa-envelope mr-2 text-red-500"></i>比赛咨询邮箱</p>
+                        <p><i class="fas fa-globe mr-2 text-red-500"></i>阿里云官网</p>
+                        <p><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>紧急联系: 110/120/119</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center pt-8 border-t border-gray-800">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold mb-2">开化县长虹乡 · AI技术助力乡村振兴</h3>
+                    <p class="text-gray-400">传承文化IP · 创新设计理念 · 助力乡村振兴</p>
+                </div>
+                <div class="flex justify-center space-x-8 text-gray-400 text-sm">
+                    <span><i class="fas fa-star mr-2 text-yellow-400"></i>华东最佳观星地</span>
+                    <span><i class="fas fa-mountain mr-2 text-orange-400"></i>江南布达拉宫</span>
+                    <span><i class="fas fa-leaf mr-2 text-green-400"></i>85.1%森林覆盖率</span>
+                    <span><i class="fas fa-medal mr-2 text-purple-400"></i>国家4A级景区</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    // Trigger number animation when section becomes visible
+                    if (entry.target.querySelector('.number-highlight')) {
+                        animateNumbersInSection(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // 页面滚动动效增强
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.parallax');
+            
+            parallax.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+
+            // Dynamic header background
+            const header = document.querySelector('header');
+            if (header) {
+                if (scrolled > 100) {
+                    header.style.background = 'rgba(0, 0, 0, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.background = 'transparent';
+                    header.style.backdropFilter = 'none';
+                }
+            }
+        });
+
+        // Enhanced card hover effects
+        document.querySelectorAll('.enhanced-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.03)';
+                this.style.zIndex = '10';
+                
+                // Add ripple effect
+                const ripple = document.createElement('div');
+                ripple.className = 'absolute inset-0 bg-red-500 bg-opacity-10 rounded-2xl animate-ping';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.zIndex = '1';
+            });
+        });
+
+        // 高德地图按钮增强效果
+        document.getElementById('openMapBtn')?.addEventListener('click', function() {
+            // Create enhanced modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 animate-fade-in';
+            modal.innerHTML = `
+                <div class="enhanced-card p-8 max-w-lg mx-4 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 to-transparent"></div>
+                    <div class="relative z-10">
+                        <i class="fas fa-map-marked-alt text-red-500 text-5xl mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-bold mb-4 gradient-text">智能导航系统</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            高德地图深度集成功能正在开发中<br>
+                            <span class="text-red-400">即将为您提供：</span><br>
+                            • 实时路况导航<br>
+                            • 景点语音讲解<br>
+                            • AR实景导览
+                        </p>
+                        <div class="flex gap-4 justify-center">
+                            <button onclick="this.closest('.fixed').remove()" 
+                                class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-all transform hover:scale-105 font-semibold">
+                                <i class="fas fa-times mr-2"></i>关闭
+                            </button>
+                            <button onclick="window.open('https://www.amap.com', '_blank')" 
+                                class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-lg transition-all transform hover:scale-105 font-semibold">
+                                <i class="fas fa-external-link-alt mr-2"></i>访问高德地图
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Auto close after 10 seconds
+            setTimeout(() => {
+                if (modal.parentNode) modal.remove();
+            }, 10000);
+        });
+
+        // Enhanced number animation with easing
+        function animateNumbersInSection(section) {
+            const numbers = section.querySelectorAll('.number-highlight, .text-5xl');
+            numbers.forEach((number, index) => {
+                setTimeout(() => {
+                    const text = number.textContent;
+                    const target = parseFloat(text.replace(/[^0-9.]/g, ''));
+                    let current = 0;
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    
+                    function updateNumber(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        // Easing function (ease-out cubic)
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        current = target * easeOut;
+                        
+                        if (text.includes('%')) {
+                            number.textContent = current.toFixed(1) + '%';
+                        } else if (text.includes('+')) {
+                            number.textContent = Math.floor(current) + '+';
+                        } else {
+                            number.textContent = Math.floor(current);
+                        }
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateNumber);
+                        }
+                    }
+                    
+                    requestAnimationFrame(updateNumber);
+                }, index * 200);
+            });
+        }
+
+        // Page load animations
+        window.addEventListener('load', () => {
+            // Add scroll-reveal class to sections
+            document.querySelectorAll('section').forEach((section, index) => {
+                section.classList.add('scroll-reveal');
+                section.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(section);
+            });
+            
+            // Smooth page entrance
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1.5s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Initialize hero section animations
+            setTimeout(() => {
+                const heroCards = document.querySelectorAll('.enhanced-card');
+                heroCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                        
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 200);
+                });
+            }, 500);
+        });
+
+        // Enhanced smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Dynamic cursor effect
+        let cursor = null;
+        document.addEventListener('mousemove', (e) => {
+            if (!cursor) {
+                cursor = document.createElement('div');
+                cursor.className = 'fixed w-4 h-4 bg-red-500 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100';
+                cursor.style.transform = 'translate(-50%, -50%)';
+                document.body.appendChild(cursor);
+            }
+            
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add CSS for fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fade-in {
+                from { opacity: 0; transform: scale(0.9); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            .animate-fade-in {
+                animation: fade-in 0.3s ease-out;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
-</html> 
+</html>
